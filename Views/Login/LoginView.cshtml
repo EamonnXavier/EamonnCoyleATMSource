@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login to Your Online Banking</h2>
+
+@if (ViewBag.LoginFailed ?? false)
+{
+    <p style="color: red;">Invalid username or password. Please try again.</p>
+}
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <label for="username">Username:</label>
+    @Html.TextBox("username", null, new { @required = "required" })
+    <br />
+    <br />
+
+    <label for="password">Password:</label>
+    @Html.Password("password", new { @required = "required" })
+    <br />
+    <br />
+
+    <button type="submit">Login</button>
+}

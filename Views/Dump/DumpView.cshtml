@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Dump";
+}
+@using EamonnCoyleATM.Models.Dump;
+
+@model DumpViewModel
+
+<h2>Accounts</h2>
+<table class="table">
+    <tr>
+        <th>Account ID</th>
+        <th>Client ID</th>
+        <th>Account Type</th>
+        <th>Account Number</th>
+        <th>Date Opened</th>
+    </tr>
+    @foreach (var account in Model.Accounts)
+    {
+        <tr>
+            <td>@account.AccountID</td>
+            <td>@account.ClientID</td>
+            <td>@account.AccountType</td>
+            <td>@account.AccountNumber</td>
+            <td>@account.DateOpened</td>
+        </tr>
+    }
+</table>
+
+<h2>Clients</h2>
+<table class="table">
+    <tr>
+        <th>Client ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>ID Number</th>
+        <th>Password</th>
+
+    </tr>
+    @foreach (var client in Model.Clients)
+    {
+        <tr>
+            <td>@client.ClientID</td>
+            <td>@client.Name</td>
+            <td>@client.Surname</td>
+            <td>@client.IDNumber</td>
+            <td>@client.Password</td>
+        </tr>
+    }
+</table>
+
+<h2>Transactions</h2>
+<table class="table">
+    <tr>
+        <th>Transaction ID</th>
+        <th>Account ID</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var transaction in Model.Transactions)
+    {
+        <tr>
+            <td>@transaction.TransactionID</td>
+            <td>@transaction.AccountID</td>
+            <td>@transaction.Amount</td>
+            <td>@transaction.Date</td>
+        </tr>
+    }
+</table>
